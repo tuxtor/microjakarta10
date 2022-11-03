@@ -1,0 +1,13 @@
+spec:
+  template:
+    spec:
+      containers:
+        - env:
+            - name: MYSQL_DATABASE
+              value: test
+            - name: MYSQL_USER
+              value: root
+            - name: MYSQL_PASSWORD
+              value: informatica
+            - name: MYSQL_URL
+              value: "jdbc:mysql://192.168.1.138:3306/test"

@@ -1,0 +1,13 @@
+POST http://localhost:8080/books
+Content-Type: application/json
+
+{
+  "title": "The Lord of the Rings",
+  "description": "Un libro de un muchacho que pudo llegar más rapido usando las aguilas :)",
+  "isbn": "978-0544003415"
+}
+
+###
+
+GET http://localhost:8080/books
+Content-Type: application/json
