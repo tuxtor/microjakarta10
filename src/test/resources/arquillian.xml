@@ -4,7 +4,7 @@
     <defaultProtocol type="Servlet 5.0"/>
     <container qualifier="bootable-jar" default="true">
         <configuration>
-            <property name="jarFile">${bootable.jar}</property>
+            <property name="jarFile">target/microjakarta10-bootable.jar</property>
             <property name="allowConnectingToRunningServer">false</property>
             <property name="managementAddress">127.0.0.1</property>
             <property name="managementPort">9990</property>

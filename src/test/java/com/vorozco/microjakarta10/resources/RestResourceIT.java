@@ -5,10 +5,11 @@ import org.jboss.arquillian.junit5.ArquillianExtension;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
+import static io.restassured.RestAssured.*;
+import static io.restassured.matcher.RestAssuredMatchers.*;
+import static org.hamcrest.Matchers.*;
 
-import java.net.URL;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(ArquillianExtension.class)
 class RestResourceIT {
@@ -17,7 +18,11 @@ class RestResourceIT {
     @Test
     @RunAsClient
     public void testURL() throws Exception {
-        String result = TestUtil.performCall(new URL("http://localhost:8080/"+ "hello"));
-        assertEquals(result, "{\"text\":\"Hola desde Jakarta EE 10\"}", result);
+        //Rest Assured get hello
+        given()
+                .when().get("/hello")
+                .then()
+                .statusCode(200)
+                .body(containsString("Hola desde Jakarta EE 10"));
     }
 }
