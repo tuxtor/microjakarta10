@@ -25,11 +25,17 @@ IC -> Artefacts : Almacenar artefactos (JAR, WAR, OCI)
 
 
 
-
+participant Operator as "Operador Infraestructura"
 participant Infra as "Infraestructura"
 
-IC -> Infra : Desplegar infraestructura
-IC -> Infra : Desplegar artefactos
+
+
+
+CVS -> Operator : Obtener definición de infraestructura (loop)
+Operator -> Infra : Configurar infraestructura
+Operator -> Infra : Ordenar despliegue de artefactos
+Artefacts -> Infra : Obtener artefactos
+
 
 Infra -> Sysadmin: Logs, métricas, estado
 Sysadmin -> Infra: Acciones preventivas y correctivas
