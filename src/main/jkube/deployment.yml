@@ -4,10 +4,22 @@ spec:
       containers:
         - env:
             - name: MYSQL_DATABASE
-              value: test
+              valueFrom:
+                secretKeyRef:
+                  name: mysqlsecret
+                  key: database
             - name: MYSQL_USER
-              value: root
+              valueFrom:
+                secretKeyRef:
+                  name: mysqlsecret
+                  key: username
             - name: MYSQL_PASSWORD
-              value: informatica
+              valueFrom:
+                secretKeyRef:
+                  name: mysqlsecret
+                  key: password
             - name: MYSQL_URL
-              value: "jdbc:mysql://192.168.1.138:3306/test"
+              valueFrom:
+                secretKeyRef:
+                  name: mysqlsecret
+                  key: url
