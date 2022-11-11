@@ -1,0 +1,22 @@
+@startuml
+participant Developer as "Java Developer"
+
+Developer -> Developer : Programar\nprobar \ny depurar
+
+participant Sysadmin as "Admin de Sistemas"
+
+Developer -> Sysadmin : Entregar\nel ejecutable (.war o .jar)
+
+Sysadmin -> Sysadmin : Configurar\nel (los) servidores
+Sysadmin -> Sysadmin : Desplegar\nel ejecutable
+
+Sysadmin -> Sysadmin : Verificar el\nfuncionamiento
+
+
+
+
+
+
+
+@enduml
+
