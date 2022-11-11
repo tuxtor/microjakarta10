@@ -2,32 +2,31 @@
 participant Developer1 as "Java Developer 1"
 participant Developer2 as "Java Developer 2"
 
-Developer1 -> Developer1 : Programar\nprobar \ny depurar
-Developer2 -> Developer2 : Programar\nprobar \ny depurar
+Developer1 -> Developer1 : Programar código y pruebas, \n depurar
+Developer2 -> Developer2 : Programar código y pruebas, \n depurar
 Developer1 -> CVS : Gestionar versiones (Commit)
 Developer2 -> CVS : Gestionar versiones (Commit)
 
 database CVS as "CVS(Git)"
-participant Developer as "Sr. Java Developer"
 
+participant IC as "Servidor IC"
 
+CVS -> IC : Obtener código
+IC -> IC : Compilar
+IC -> IC : Pruebas automáticas
 
-Developer -> CVS : Gestionar versiones (Commit)
-Developer -> Developer : Programar\nprobar \ny depurar
+database Artefacts as "Almacen Artefactos"
+IC -> Artefacts : Almacenar artefactos (JAR, WAR, OCI)
 
 participant Sysadmin as "Admin de Sistemas"
 
-Developer -> Sysadmin : Entregar\nel ejecutable (.war o .jar)
-
+== Despliegue ==
+Artefacts -> Sysadmin : Obtener artefactos
 Sysadmin -> Sysadmin : Configurar\nel (los) servidores
 Sysadmin -> Sysadmin : Desplegar\nel ejecutable
 
 Sysadmin -> Sysadmin : Verificar el\nfuncionamiento
-
-
-
-
-
+Sysadmin -> Sysadmin : Monitorizar el\nfuncionamiento
 
 
 @enduml
