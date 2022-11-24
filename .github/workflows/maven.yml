@@ -51,8 +51,9 @@ jobs:
     - uses: actions/download-artifact@v2
       with:
         name: target
+        path: target
     - name: Build OCI image with JKube
-      run: ls && ls target && mvn -B k8s:build
+      run: mvn -B k8s:build
     - name: Log into OCIR
       uses: oracle-actions/login-ocir@v1.1
       id: login-ocir
