@@ -52,7 +52,9 @@ jobs:
       with:
         name: target
     - name: Build OCI image with JKube
-      run: mvn -B k8s:build
+      run:
+        - ls
+        - mvn -B k8s:build
     - name: Log into OCIR
       uses: oracle-actions/login-ocir@v1.1
       id: login-ocir
