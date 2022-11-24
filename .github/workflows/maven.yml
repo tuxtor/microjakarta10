@@ -32,7 +32,7 @@ jobs:
           path: target
   push-to-ocir:
     name: Push to OCIR
-    depends-on: build
+    needs: build
     runs-on: ubuntu-latest
     env:
       OCI_CLI_USER: ${{ secrets.OCI_CLI_USER }}
