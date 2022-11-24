@@ -18,8 +18,7 @@
         <jkube.generator.name>tuxtor/%a:%l</jkube.generator.name>
         <version.testcontainers>1.17.5</version.testcontainers>
         <version>1.10.1</version>
-        <jkube.docker.registry>iad.ocir.io/idemd9jasawg</jkube.docker.registry>
-        <jkube.generator.name>microjakarta10:%l</jkube.generator.name>
+        <jkube.generator.name>iad.ocir.io/idemd9jasawg/microjakarta10:%l</jkube.generator.name>
     </properties>
     
     <dependencies>
