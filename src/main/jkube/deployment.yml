@@ -2,7 +2,8 @@ spec:
   template:
     spec:
       containers:
-        - env:
+        - imagePullPolicy: Always
+          env:
             - name: MYSQL_DATABASE
               valueFrom:
                 secretKeyRef:
