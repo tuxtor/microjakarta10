@@ -28,4 +28,8 @@ Este repositorio demuestra como utilizar en conjunto:
   * Steps (pasos dentro de un mismo entorno/job)
   * Runners
 
+## Kubernetes
 
+* Pull secret
+* Database secret
+* Network
