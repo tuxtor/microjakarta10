@@ -66,8 +66,8 @@ jobs:
         run: mvn -B k8s:push
       - uses: actions/upload-artifact@v3
         with:
-          name: deployment
-          path: target/classes/META-INF/jkube/kubernetes.yml
+          name: target
+          path: target
   deploy-to-oci:
     name: Deploy to OCI
     needs: push-to-oci
@@ -83,13 +83,13 @@ jobs:
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
-            java-version: '17'
-            distribution: 'temurin'
-            cache: maven
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
       - uses: actions/download-artifact@v3
         with:
-            name: deployment
-            path: target/classes/META-INF/jkube/kubernetes.yml
+          name: target
+          path: target
       - name: Configure Kubectl
         uses: oracle-actions/configure-kubectl-oke@v1.3.1
         id: test-configure-kubectl-oke-action
