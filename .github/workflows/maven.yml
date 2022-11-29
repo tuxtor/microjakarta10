@@ -68,33 +68,33 @@ jobs:
         with:
           name: deployment
           path: target/classes/META-INF/jkube/kubernetes.yml
-    deploy-to-oci:
-        name: Deploy to OCI
-        needs: push-to-oci
-        runs-on: ubuntu-latest
-        env:
-            OCI_CLI_USER: ${{ secrets.OCI_CLI_USER }}
-            OCI_CLI_TENANCY: ${{ secrets.OCI_CLI_TENANCY }}
-            OCI_CLI_FINGERPRINT: ${{ secrets.OCI_CLI_FINGERPRINT }}
-            OCI_CLI_KEY_CONTENT: ${{ secrets.OCI_CLI_KEY_CONTENT }}
-            OCI_CLI_REGION: ${{ secrets.OCI_CLI_REGION }}
-        steps:
-          - uses: actions/checkout@v3
-          - name: Set up JDK 17
-            uses: actions/setup-java@v3
-            with:
-                java-version: '17'
-                distribution: 'temurin'
-                cache: maven
-          - uses: actions/download-artifact@v3
-            with:
-                name: deployment
-                path: target/classes/META-INF/jkube/kubernetes.yml
-          - name: Configure Kubectl
-            uses: oracle-actions/configure-kubectl-oke@v1.3.1
-            id: test-configure-kubectl-oke-action
-            with:
-              cluster: ${{ secrets.OKE_CLUSTER_OCID }}
-          - name: Deploy to OKE
-            run: mvn -B k8s:deploy
+  deploy-to-oci:
+    name: Deploy to OCI
+    needs: push-to-oci
+    runs-on: ubuntu-latest
+    env:
+      OCI_CLI_USER: ${{ secrets.OCI_CLI_USER }}
+      OCI_CLI_TENANCY: ${{ secrets.OCI_CLI_TENANCY }}
+      OCI_CLI_FINGERPRINT: ${{ secrets.OCI_CLI_FINGERPRINT }}
+      OCI_CLI_KEY_CONTENT: ${{ secrets.OCI_CLI_KEY_CONTENT }}
+      OCI_CLI_REGION: ${{ secrets.OCI_CLI_REGION }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+            java-version: '17'
+            distribution: 'temurin'
+            cache: maven
+      - uses: actions/download-artifact@v3
+        with:
+            name: deployment
+            path: target/classes/META-INF/jkube/kubernetes.yml
+      - name: Configure Kubectl
+        uses: oracle-actions/configure-kubectl-oke@v1.3.1
+        id: test-configure-kubectl-oke-action
+        with:
+          cluster: ${{ secrets.OKE_CLUSTER_OCID }}
+      - name: Deploy to OKE
+        run: mvn -B k8s:deploy
 
