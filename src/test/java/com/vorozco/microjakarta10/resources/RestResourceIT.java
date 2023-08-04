@@ -23,6 +23,6 @@ class RestResourceIT {
                 .when().get("/hello")
                 .then()
                 .statusCode(200)
-                .body(containsString("Hola desde Jakarta EE 10 y CI/CD"));
+                .body(containsString("Hola desde KCD Guatemala"));
     }
 }
