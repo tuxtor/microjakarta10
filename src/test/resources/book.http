@@ -1,4 +1,4 @@
-POST http://localhost:8080/books
+POST http://oc.vorozco.com/microjakarta10/books
 Content-Type: application/json
 
 {
@@ -9,5 +9,5 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:8080/books
+GET http://oc.vorozco.com/microjakarta10/books
 Content-Type: application/json
