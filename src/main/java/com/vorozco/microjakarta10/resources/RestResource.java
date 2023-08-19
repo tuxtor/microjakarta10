@@ -20,12 +20,16 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.Response;
 
+import java.util.logging.Logger;
+
 @Path("hello")
 public class RestResource {
     
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public HelloRecord hello(){
+        Logger logger = Logger.getLogger(RestResource.class.getName());
+        logger.warning("Reaching hello endpoint");
         return new HelloRecord("Hola desde oracle tour");
     }
 }
