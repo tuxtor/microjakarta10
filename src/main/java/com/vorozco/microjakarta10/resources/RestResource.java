@@ -30,6 +30,6 @@ public class RestResource {
     public HelloRecord hello(){
         Logger logger = Logger.getLogger(RestResource.class.getName());
         logger.warning("Reaching hello endpoint");
-        return new HelloRecord("Hola desde oracle tour");
+        return new HelloRecord("Hola desde KCD Guatemala");
     }
 }

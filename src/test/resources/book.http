@@ -11,3 +11,8 @@ Content-Type: application/json
 
 GET http://oc.vorozco.com/microjakarta10/books
 Content-Type: application/json
+
+###
+
+
+GET http://oc.vorozco.com/microjakarta10/hello
